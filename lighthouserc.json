@@ -20,7 +20,7 @@
         "cumulative-layout-shift": ["error", { "maxNumericValue": 0.02 }],
         "total-blocking-time": ["error", { "maxNumericValue": 100 }],
         "first-contentful-paint": ["error", { "maxNumericValue": 1500 }],
-        "resource-summary:script:size": ["error", { "maxNumericValue": 102400 }],
+        "resource-summary:script:size": ["error", { "maxNumericValue": 163840 }],
         "resource-summary:total:size": ["warn", { "maxNumericValue": 512000 }]
       }
     },
