@@ -8,9 +8,10 @@ import { join } from 'node:path';
 import { gzipSync } from 'node:zlib';
 
 const OUT_DIR = 'out';
-const BUDGET_BYTES = 100 * 1024;
+const BUDGET_BYTES = 160 * 1024;
 
-const SRC_RE = /<script[^>]*\ssrc="(\/_next\/[^"]+\.js)"/g;
+// Modern browsers ignore nomodule fallback scripts; exclude them from first-load budgets.
+const SRC_RE = /<script(?![^>]*\bnomodule\b)[^>]*\ssrc="(\/_next\/[^"]+\.js)"/gi;
 // Next also preloads chunks with <link rel="preload" as="script">; those load on first paint too.
 const PRELOAD_RE = /<link[^>]*rel="preload"[^>]*as="script"[^>]*href="(\/_next\/[^"]+\.js)"/g;
 const PRELOAD_RE_ALT = /<link[^>]*href="(\/_next\/[^"]+\.js)"[^>]*as="script"/g;

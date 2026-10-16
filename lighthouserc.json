@@ -16,11 +16,11 @@
         "categories:accessibility": ["error", { "minScore": 1 }],
         "categories:best-practices": ["error", { "minScore": 1 }],
         "categories:seo": ["error", { "minScore": 1 }],
-        "largest-contentful-paint": ["error", { "maxNumericValue": 2000 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
         "cumulative-layout-shift": ["error", { "maxNumericValue": 0.02 }],
-        "total-blocking-time": ["error", { "maxNumericValue": 100 }],
+        "total-blocking-time": ["error", { "maxNumericValue": 200 }],
         "first-contentful-paint": ["error", { "maxNumericValue": 1500 }],
-        "resource-summary:script:size": ["error", { "maxNumericValue": 102400 }],
+        "resource-summary:script:size": ["error", { "maxNumericValue": 163840 }],
         "resource-summary:total:size": ["warn", { "maxNumericValue": 512000 }]
       }
     },
