@@ -1,5 +1,5 @@
 {
   "*.{ts,tsx,mjs}": ["eslint --fix --max-warnings=0", "prettier --write"],
-  "*.{css,json,yml,yaml,toml}": ["prettier --write"],
+  "*.{css,json,yml,yaml}": ["prettier --write"],
   "docs/{DECISIONS,CONTENT-GUIDE}.md": ["prettier --write"]
 }
