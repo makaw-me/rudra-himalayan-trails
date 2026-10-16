@@ -310,7 +310,7 @@ Fold these into the phases above (most belong in Phase 0 and Phase 5).
 The corrected mockup (desktop 1280 and mobile 390) is the visual reference. It follows `DESIGN-REFERENCE.md`. Where it differs from section 5 above, **this section wins**.
 
 - **Final section order:** Header, Hero, Trust strip, Meet Bhupinder, Tour circuits, **How it works (new)**, Stays and camps and custom trips, Estimate, Reviews, FAQ, Enquiry, Footer, plus the mobile-only sticky contact bar.
-- **Header and nav:** Routes, Stays and camps, About, Reviews, FAQ, and a gold "Plan your trip" button. The header logo is the wordmark only; the full lockup appears in the footer.
+- **Header and nav:** Routes, Stays and camps, About, Reviews, FAQ, and a gold "Plan your trip" button. Both the header and footer use the same logo (the full lockup).
 - **Hero:** two columns on desktop (text left, photo right); on mobile, photo first and text below. Both headline lines are teal.
 - **Trust strip:** overlaps the hero on desktop, 2x2 grid on mobile, no overlap.
 - **Circuit cards:** each shows typical days and best months, and a unique link such as "Explore Spiti Valley". There is no "View all" link.
@@ -318,9 +318,9 @@ The corrected mockup (desktop 1280 and mobile 390) is the visual reference. It f
 - **Reviews:** a static grid (desktop) or scroll-snap list (mobile). No arrows, dots or autoplay. If `reviews.length === 0`, the section and its nav link are hidden.
 - **Estimate:** includes the result state: an indicative range, a disclaimer, and a "Confirm on WhatsApp" button, announced with `aria-live`. The disclaimer box uses Glacier Mist, not blue.
 - **Floating buttons removed.** No floating WhatsApp, call or back-to-top circles. Mobile uses the sticky bottom bar; desktop uses the header CTA and enquiry section. The footer has a plain "Back to top" link.
-- **Footer:** full lockup, quick links, phone, WhatsApp, email, service area, privacy and terms, social links with accessible names, and the current year computed at build.
+- **Footer:** full lockup (same logo as the header), quick links, phone, WhatsApp, email, service area, privacy and terms, social links with accessible names, and the current year computed at build.
 - **Placeholders:** every `[BRACKETED]` item in the mockup (days, months, prices, phone, answers, reviews, photos) must come from `/data` and be supplied by the client. The agent must not invent them. Missing values stay as marked TODOs.
-- **Logo in the mockup:** a cropped PNG stands in for the header wordmark. Production uses the SVG versions listed in `DESIGN-REFERENCE.md` section 6.
+- **Logo in the mockup:** a cropped PNG stands in for the logo. Production uses the SVG versions of the final logo for both header and footer.
 - **Intentional differences from the mockup:** photos are placeholders; icons are a simple Lucide-style line set; the FAQ is shown (it remains an optional phase in section 11).
 
 ## 18. Hosting on Netlify (overrides earlier hosting notes)
