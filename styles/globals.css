@@ -1,0 +1,166 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens: the single source for colour, type, spacing and radius.
+ * Mirrored for non-CSS consumers in styles/tokens.ts.
+ *
+ * Contrast (WCAG 2.x relative luminance, computed):
+ *   teal     #164653 on white 10.3:1 | on mist 9.1:1   -> all text sizes
+ *   charcoal #344B53 on white  9.2:1 | on mist 8.1:1   -> all text sizes
+ *   white / mist on teal       10.3:1 / 9.1:1          -> all text sizes
+ *   teal on gold               6.2:1                    -> CTA text (always teal on gold)
+ *   gold on white              1.7:1  FAIL              -> never text, border-only or focus cue
+ *   sage on white              4.3:1  FAIL (normal text) -> decorative icons, borders only
+ *   focus ring teal on white/mist >= 9:1; white ring on teal 10.3:1 (non-text >= 3:1)
+ */
+
+@theme {
+  /* Remove Tailwind's default palette so only brand colours exist. */
+  --color-*: initial;
+  --color-teal: #164653;
+  --color-white: #ffffff;
+  --color-mist: #eaf2f3;
+  --color-sage: #64816b; /* decorative only */
+  --color-gold: #ffbd3d; /* CTA background only */
+  --color-charcoal: #344b53;
+
+  /* Fluid type scale. Body never below 16px; 18px on large screens. */
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-body--line-height: 1.6;
+  --text-eyebrow: 0.875rem;
+  --text-eyebrow--line-height: 1.4;
+  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-h3--line-height: 1.2;
+  --text-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.5rem);
+  --text-h2--line-height: 1.15;
+  --text-h1: clamp(2.25rem, 1.6rem + 3vw, 3.75rem);
+  --text-h1--line-height: 1.1;
+
+  --tracking-heading: -0.01em;
+  --tracking-eyebrow: 0.18em;
+
+  /* Layout. Spacing stays on Tailwind's 0.25rem scale; use even steps (8px grid). */
+  --container-content: 75rem; /* 1200px */
+  --spacing-target: 2.75rem; /* 44px minimum touch target */
+  --spacing-section: clamp(3rem, 2rem + 4vw, 6rem);
+
+  --radius-card: 0.75rem;
+  --radius-input: 0.5rem;
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Font families come from next/font CSS variables set on <html> in app/layout.tsx. */
+@theme inline {
+  --font-sans: var(--font-mukta), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Keep focused/anchored elements clear of sticky UI (WCAG 2.4.11). Set by layout in later phases. */
+    scroll-padding-top: var(--header-offset, 0px);
+    scroll-padding-bottom: var(--bottom-bar-offset, 0px);
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+    font-weight: 400;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-heading);
+    color: var(--color-teal);
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--text-h1);
+    line-height: var(--text-h1--line-height);
+    font-weight: 800;
+    letter-spacing: var(--tracking-heading);
+  }
+
+  h2 {
+    font-size: var(--text-h2);
+    line-height: var(--text-h2--line-height);
+    font-weight: 700;
+    letter-spacing: var(--tracking-heading);
+  }
+
+  h3 {
+    font-size: var(--text-h3);
+    line-height: var(--text-h3--line-height);
+    font-weight: 600;
+  }
+
+  p {
+    max-width: 65ch;
+    text-wrap: pretty;
+  }
+
+  /* Focus: 3px teal ring with a 2px white gap, visible on white, mist and photos. */
+  :focus-visible {
+    outline: 3px solid var(--color-teal);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px var(--color-white);
+  }
+
+  /* On teal surfaces the ring flips to white with a teal gap. */
+  [data-surface='teal'] :focus-visible {
+    outline-color: var(--color-white);
+    box-shadow: 0 0 0 2px var(--color-teal);
+  }
+
+  ::placeholder {
+    color: var(--color-charcoal);
+    opacity: 1;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-teal);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+@utility eyebrow {
+  font-family: var(--font-heading);
+  font-size: var(--text-eyebrow);
+  line-height: var(--text-eyebrow--line-height);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}

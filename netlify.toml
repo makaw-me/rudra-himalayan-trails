@@ -1,0 +1,77 @@
+# Netlify: static export (BUILD-PLAN.md section 18). No Functions, Edge Functions or Forms.
+# The per-build CSP (Report-Only, hash-based) is written to out/_headers by
+# scripts/csp-headers.ts and merged by Netlify with the [[headers]] below.
+
+[build]
+  command = "pnpm build"
+  publish = "out"
+
+[build.environment]
+  # Node major comes from .nvmrc; pnpm from package.json "packageManager".
+  NEXT_TELEMETRY_DISABLED = "1"
+  # Static export: the Next.js runtime adapter is not needed.
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+# Production: indexable only because CONTEXT=production AND NEXT_PUBLIC_SITE_URL is set.
+[context.production.environment]
+  # TODO(client): confirm domain. Must match data/site.ts "domain".
+  NEXT_PUBLIC_SITE_URL = "https://www.rudrahimalayantrails.com"
+  NEXT_PUBLIC_IMAGE_LOADER = "netlify"
+
+# Previews and branch deploys: no NEXT_PUBLIC_SITE_URL here, so they build noindex + Disallow: /.
+[context.deploy-preview.environment]
+  NEXT_PUBLIC_IMAGE_LOADER = "netlify"
+
+[context.branch-deploy.environment]
+  NEXT_PUBLIC_IMAGE_LOADER = "netlify"
+
+# ---------------------------------------------------------------------------
+# Redirects
+# ---------------------------------------------------------------------------
+
+# Apex -> www (Netlify also does this once www is the primary domain).
+[[redirects]]
+  from = "https://rudrahimalayantrails.com/*"
+  to = "https://www.rudrahimalayantrails.com/:splat"
+  status = 301
+  force = true
+
+# TODO(deploy): once the Netlify site name is known, add the .netlify.app -> www redirect
+# if Netlify does not already redirect it to the primary domain. Keep deploy previews reachable:
+# match only the bare production subdomain, e.g.
+# [[redirects]]
+#   from = "https://<site-name>.netlify.app/*"
+#   to = "https://www.rudrahimalayantrails.com/:splat"
+#   status = 301
+#   force = true
+
+# ---------------------------------------------------------------------------
+# Headers
+# ---------------------------------------------------------------------------
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    X-Frame-Options = "DENY"
+    Cross-Origin-Opener-Policy = "same-origin"
+
+# Hashed build assets never change.
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML and unhashed files revalidate so deploys show up immediately.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"

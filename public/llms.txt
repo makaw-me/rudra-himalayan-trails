@@ -1,0 +1,9 @@
+# Rudra Himalayan Trails
+
+> Local driver and trip planning for Himalayan road trips in Spiti Valley, Himachal, Leh-Ladakh and Uttarakhand, run by Bhupinder Thakur. Enquiries by WhatsApp or phone.
+
+Placeholder file. In Phase 4 it will be generated from /data/site.ts with services, routes and contact details once the client confirms them.
+
+## Pages
+
+- [Home](/): routes, stays and camps, how it works, enquiry

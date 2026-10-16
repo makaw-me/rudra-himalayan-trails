@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rudra Himalayan Trails">
+  <!-- PLACEHOLDER: not the logo. Replace with the client's SVG logo mark (docs/design). -->
+  <rect width="64" height="64" rx="14" fill="#164653"/>
+  <path d="M12 46 L26 24 L33 34 L39 27 L52 46 Z" fill="#FFFFFF"/>
+  <path d="M26 24 L30 30 L22 30 Z" fill="#EAF2F3"/>
+</svg>

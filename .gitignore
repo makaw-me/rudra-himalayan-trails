@@ -1,0 +1,69 @@
+# dependencies
+node_modules/
+.pnpm-store/
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# next.js build output (static export goes to /out)
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# tests, audits and reports
+/coverage/
+/playwright-report/
+/test-results/
+/blob-report/
+/playwright/.cache/
+/.lighthouseci/
+.eslintcache
+.prettiercache
+
+# environment files and secrets (only the example is committed)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# netlify local state
+.netlify/
+
+# husky generates this folder on install; the hooks themselves (.husky/pre-commit) are committed
+/.husky/_/
+
+# image originals stay outside /public and outside git (optimised output is committed)
+/originals/
+/photos-raw/
+
+# scratch space
+/tmp/
+/scratch/
+*.tmp
+*.bak
+
+# logs
+*.log
+
+# os files
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+
+# editors: ignore personal settings, keep shared project settings
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.swp
+*.swo
+
+# antigravity / agent local state: keep shared rules, skills and workflows (.agent/), ignore local runtime files
+.agent/tmp/
+.agent/cache/
+.gemini/

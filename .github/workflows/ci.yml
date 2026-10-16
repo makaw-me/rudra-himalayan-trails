@@ -1,0 +1,71 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4 # version from package.json "packageManager"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+      - name: Format
+        run: pnpm format:check
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Data check
+        run: pnpm check-data
+      - name: Unit tests
+        run: pnpm test
+      - name: Audit dependencies
+        run: pnpm audit --audit-level=high
+
+      # Build once with an origin that matches the local server used by e2e and Lighthouse.
+      - name: Build
+        run: pnpm build
+        env:
+          CONTEXT: production
+          NEXT_PUBLIC_SITE_URL: http://localhost:4173
+          NEXT_PUBLIC_IMAGE_LOADER: none
+      - name: First-load JS budget
+        run: pnpm check-bundle
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+      - name: E2E and axe
+        run: pnpm test:e2e
+      - name: Lighthouse CI
+        run: pnpm lhci --no-build
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reports
+          path: |
+            playwright-report/
+            .lighthouseci/
+          retention-days: 14
