@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { SkipLink } from '@/components/layout/SkipLink';
+import { StickyContactBar } from '@/components/layout/StickyContactBar';
 import { getNavigation, getSite } from '@/data';
 import { isIndexable, siteUrl } from '@/lib/env';
 import { montserrat, mukta } from '@/lib/fonts';
@@ -44,6 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           backToTopLabel={site.ui.backToTop}
           year={new Date().getFullYear()}
         />
+        <StickyContactBar contact={site.contact} />
       </body>
     </html>
   );

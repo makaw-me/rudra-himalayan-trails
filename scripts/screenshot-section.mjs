@@ -56,6 +56,15 @@ try {
     await page.evaluate(() => document.fonts.ready);
 
     const el = page.locator(selector).first();
+    const visible = await el.isVisible().catch(() => false);
+    if (!visible) {
+      console.log(
+        `Element ${selector} is hidden at ${width}px (expected for breakpoint-specific components).`,
+      );
+      await page.close();
+      continue;
+    }
+
     const box = await el.boundingBox();
     if (box && box.height > 600) {
       await page.setViewportSize({ width, height: Math.ceil(box.height) + 300 });
