@@ -1,18 +1,24 @@
-import { getSite } from '@/data';
+import { getImage, getNavigation, getSite } from '@/data';
+import { Hero } from '@/components/sections/Hero';
 
 /**
- * Phase 0 shell: one <main> and the single <h1>. Sections are composed here
- * from /data in Phase 1 (app/page.tsx -> sections/* -> ui/*).
+ * Home page: composed server components.
+ * Data flow: app/page.tsx (server) -> sections/* (server) -> ui/*
  */
 export default function HomePage() {
-  const { hero, tagline } = getSite();
+  const site = getSite();
+  const navigation = getNavigation();
+  const heroImage = getImage('hero');
 
   return (
     <main id="main" tabIndex={-1} className="focus:outline-none">
-      <section aria-labelledby="hero-title" className="container-page py-section">
-        <h1 id="hero-title">{hero.headline}</h1>
-        <p className="mt-4">{tagline}</p>
-      </section>
+      <Hero
+        headline={site.hero.headline}
+        subcopy={site.hero.subcopy}
+        image={heroImage}
+        primaryCta={navigation.cta}
+        secondaryCta={{ label: 'Explore routes', href: '#routes' }}
+      />
     </main>
   );
 }

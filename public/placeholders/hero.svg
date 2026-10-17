@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none">
+  <defs>
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAF2F3"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="peakBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#64816B" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#EAF2F3"/>
+    </linearGradient>
+    <linearGradient id="peakMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#164653" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#64816B" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="peakFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#164653"/>
+      <stop offset="100%" stop-color="#344B53"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky background -->
+  <rect width="1200" height="800" fill="url(#skyGrad)"/>
+
+  <!-- Sun -->
+  <circle cx="820" cy="220" r="90" fill="#FFBD3D" fill-opacity="0.85"/>
+
+  <!-- Far mountain range -->
+  <polygon points="50,560 320,240 540,560" fill="url(#peakBack)"/>
+  <polygon points="400,580 680,180 960,580" fill="url(#peakBack)"/>
+  <polygon points="820,560 1050,280 1250,560" fill="url(#peakBack)"/>
+
+  <!-- Mid mountain range -->
+  <polygon points="-80,620 220,310 490,620" fill="url(#peakMid)"/>
+  <polygon points="420,620 740,260 1060,620" fill="url(#peakMid)"/>
+
+  <!-- Foreground mountain and hills -->
+  <polygon points="120,680 460,390 820,680" fill="url(#peakFront)" fill-opacity="0.7"/>
+  <polygon points="680,720 980,420 1280,720" fill="url(#peakFront)" fill-opacity="0.8"/>
+
+  <!-- Valley base -->
+  <path d="M0 640 Q350 590 600 660 T1200 650 L1200 800 L0 800 Z" fill="#EAF2F3"/>
+
+  <!-- Winding Himalayan Road -->
+  <path d="M380 800 Q 560 690 610 630 T 630 580" stroke="#FFFFFF" stroke-width="84" stroke-linecap="round"/>
+  <path d="M380 800 Q 560 690 610 630 T 630 580" stroke="#344B53" stroke-width="76" stroke-linecap="round"/>
+  <!-- Road center dashes -->
+  <path d="M380 800 Q 560 690 610 630 T 630 580" stroke="#FFBD3D" stroke-width="6" stroke-dasharray="24 20" stroke-linecap="butt"/>
+
+  <!-- Frame border -->
+  <rect x="0.5" y="0.5" width="1199" height="799" rx="12" stroke="#EAF2F3" stroke-width="1"/>
+
+  <!-- Subtle placeholder badge -->
+  <g transform="translate(40, 720)">
+    <rect width="360" height="44" rx="6" fill="#164653" fill-opacity="0.85"/>
+    <text x="180" y="27" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="600" text-anchor="middle">
+      Himalayan Routes • Placeholder Image
+    </text>
+  </g>
+</svg>

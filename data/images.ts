@@ -6,4 +6,14 @@
  */
 import type { ImagesInput } from './types.ts';
 
-export const images = {} satisfies ImagesInput;
+export const images = {
+  hero: {
+    src: '/placeholders/hero.svg',
+    alt: 'Himalayan mountain highway with scenic peaks under clear morning sky',
+    decorative: false,
+    width: 1200,
+    height: 800,
+    sizes: '(max-width: 768px) 100vw, 50vw',
+    priority: true,
+  },
+} satisfies ImagesInput;
