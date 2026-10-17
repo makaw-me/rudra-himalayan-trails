@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="Custom Himalayan journey across heritage resorts and scenic mountain vistas">
+  <defs>
+    <linearGradient id="sky-custom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAF2F3" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#sky-custom)" />
+
+  <!-- Mountain Landscape -->
+  <polygon points="120,500 340,160 560,500" fill="#164653" opacity="0.35" />
+  <polygon points="380,500 560,200 740,500" fill="#64816B" opacity="0.3" />
+
+  <!-- Sun -->
+  <circle cx="260" cy="160" r="38" fill="#FFBD3D" opacity="0.8" />
+
+  <!-- Mountain Valley Curves -->
+  <path d="M0,380 Q300,320 800,390 L800,500 L0,500 Z" fill="#EAF2F3" />
+
+  <!-- Scenic Road -->
+  <path d="M220,500 Q400,370 540,320" stroke="#164653" stroke-width="26" fill="none" stroke-linecap="round" />
+  <path d="M220,500 Q400,370 540,320" stroke="#FFBD3D" stroke-width="3" stroke-dasharray="16 12" fill="none" stroke-linecap="round" />
+
+  <!-- Heritage Chalet & Viewpoint -->
+  <polygon points="560,340 640,280 720,340" fill="#344B53" />
+  <rect x="580" y="340" width="120" height="70" fill="#164653" rx="4" />
+  <rect x="600" y="355" width="25" height="25" fill="#FFFFFF" rx="2" />
+  <rect x="655" y="355" width="25" height="25" fill="#FFFFFF" rx="2" />
+
+  <!-- Compass / Custom trip badge mark -->
+  <circle cx="140" cy="300" r="44" fill="#FFFFFF" stroke="#164653" stroke-width="2" />
+  <polygon points="140,268 148,298 140,292 132,298" fill="#FFBD3D" />
+  <polygon points="140,332 148,302 140,308 132,302" fill="#164653" />
+
+  <!-- Label badge -->
+  <rect x="40" y="445" width="180" height="24" rx="4" fill="#164653" opacity="0.85" />
+  <text x="50" y="461" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">Custom Trips • Photo</text>
+</svg>

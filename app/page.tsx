@@ -1,18 +1,74 @@
-import { getSite } from '@/data';
+import {
+  getCircuits,
+  getFaq,
+  getImage,
+  getNavigation,
+  getPricing,
+  getReviews,
+  getSite,
+  getStays,
+  getSteps,
+  getTrustItems,
+} from '@/data';
+import { Circuits } from '@/components/sections/Circuits';
+import { Enquiry } from '@/components/sections/Enquiry';
+import { Estimate } from '@/components/sections/Estimate';
+import { FAQ } from '@/components/sections/FAQ';
+import { Hero } from '@/components/sections/Hero';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { MeetBhupinder } from '@/components/sections/MeetBhupinder';
+import { Reviews } from '@/components/sections/Reviews';
+import { Stays } from '@/components/sections/Stays';
+import { TrustStrip } from '@/components/sections/TrustStrip';
 
 /**
- * Phase 0 shell: one <main> and the single <h1>. Sections are composed here
- * from /data in Phase 1 (app/page.tsx -> sections/* -> ui/*).
+ * Home page: composed server components.
+ * Data flow: app/page.tsx (server) -> sections/* (server) -> ui/*
  */
 export default function HomePage() {
-  const { hero, tagline } = getSite();
+  const site = getSite();
+  const navigation = getNavigation();
+  const heroImage = getImage('hero');
+  const bhupinderImage = getImage('bhupinder');
+  const trustItems = getTrustItems();
+  const circuits = getCircuits();
+  const steps = getSteps();
+  const stays = getStays();
+  const pricing = getPricing();
+  const reviews = getReviews();
+  const faq = getFaq();
+
+  const circuitImages = {
+    'circuit-spiti': getImage('circuit-spiti'),
+    'circuit-himachal-escapes': getImage('circuit-himachal-escapes'),
+    'circuit-leh-ladakh': getImage('circuit-leh-ladakh'),
+    'circuit-uttarakhand': getImage('circuit-uttarakhand'),
+  };
+
+  const stayImages = {
+    'stay-homestays': getImage('stay-homestays'),
+    'stay-camps': getImage('stay-camps'),
+    'stay-custom-trips': getImage('stay-custom-trips'),
+  };
 
   return (
     <main id="main" tabIndex={-1} className="focus:outline-none">
-      <section aria-labelledby="hero-title" className="container-page py-section">
-        <h1 id="hero-title">{hero.headline}</h1>
-        <p className="mt-4">{tagline}</p>
-      </section>
+      <Hero
+        headline={site.hero.headline}
+        subcopy={site.hero.subcopy}
+        image={heroImage}
+        primaryCta={navigation.cta}
+        secondaryCta={{ label: 'Explore routes', href: '#routes' }}
+      />
+      <TrustStrip items={trustItems} />
+      <MeetBhupinder founder={site.founder} image={bhupinderImage} />
+      <Circuits circuits={circuits} images={circuitImages} />
+      <HowItWorks steps={steps} />
+      <Stays stays={stays} images={stayImages} />
+      <Estimate circuits={circuits} pricing={pricing} site={site} />
+      <Reviews reviews={reviews} />
+      <FAQ items={faq} />
+      <Enquiry site={site} />
     </main>
   );
 }

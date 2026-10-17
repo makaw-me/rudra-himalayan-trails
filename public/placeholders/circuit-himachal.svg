@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <defs>
+    <linearGradient id="hpSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAF2F3"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#hpSky)"/>
+  <polygon points="20,440 240,210 460,440" fill="#64816B" fill-opacity="0.35"/>
+  <polygon points="380,450 600,160 820,450" fill="#64816B" fill-opacity="0.45"/>
+  <polygon points="140,490 390,260 640,490" fill="#164653" fill-opacity="0.7"/>
+  <path d="M0 460 Q260 410 500 470 T800 460 L800 500 L0 500 Z" fill="#EAF2F3"/>
+  <!-- Pine tree icons -->
+  <polygon points="110,480 130,420 150,480" fill="#64816B"/>
+  <polygon points="140,490 160,430 180,490" fill="#164653"/>
+  <polygon points="170,485 185,440 200,485" fill="#64816B"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="10" stroke="#EAF2F3"/>
+  <g transform="translate(30, 430)">
+    <rect width="260" height="36" rx="6" fill="#164653" fill-opacity="0.9"/>
+    <text x="130" y="23" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">
+      Himachal Escapes • Photo
+    </text>
+  </g>
+</svg>

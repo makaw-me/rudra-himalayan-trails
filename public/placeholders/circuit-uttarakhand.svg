@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" fill="none">
+  <defs>
+    <linearGradient id="ukSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAF2F3"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#ukSky)"/>
+  <polygon points="50,440 260,200 480,440" fill="#64816B" fill-opacity="0.4"/>
+  <polygon points="320,460 560,150 780,460" fill="#164653" fill-opacity="0.35"/>
+  <polygon points="150,490 380,240 620,490" fill="#164653" fill-opacity="0.75"/>
+  <path d="M0 450 Q240 400 480 460 T800 450 L800 500 L0 500 Z" fill="#EAF2F3"/>
+  <rect x="0.5" y="0.5" width="799" height="499" rx="10" stroke="#EAF2F3"/>
+  <g transform="translate(30, 430)">
+    <rect width="250" height="36" rx="6" fill="#164653" fill-opacity="0.9"/>
+    <text x="125" y="23" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">
+      Uttarakhand • Photo
+    </text>
+  </g>
+</svg>
