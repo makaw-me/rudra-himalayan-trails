@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { SkipLink } from '@/components/layout/SkipLink';
-import { getSite } from '@/data';
+import { getNavigation, getSite } from '@/data';
 import { isIndexable, siteUrl } from '@/lib/env';
 import { montserrat, mukta } from '@/lib/fonts';
 import { buildRootMetadata } from '@/lib/seo';
@@ -11,6 +11,7 @@ import { brandColors } from '@/styles/tokens';
 import '@/styles/globals.css';
 
 const site = getSite();
+const navigation = getNavigation();
 
 export const MAIN_ID = 'main';
 
@@ -28,7 +29,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
     <html lang={site.language} className={`${montserrat.variable} ${mukta.variable}`}>
       <body id="top">
         <SkipLink targetId={MAIN_ID} label={site.ui.skipLink} />
-        <Header brandName={site.name} homeLinkLabel={site.ui.homeLinkLabel} />
+        <Header
+          homeLinkLabel={site.ui.homeLinkLabel}
+          items={navigation.primary}
+          cta={navigation.cta}
+        />
         {children}
         <Footer
           legalName={site.legalName}
