@@ -11,6 +11,7 @@ import {
   getTrustItems,
 } from '@/data';
 import { Circuits } from '@/components/sections/Circuits';
+import { Enquiry } from '@/components/sections/Enquiry';
 import { Estimate } from '@/components/sections/Estimate';
 import { FAQ } from '@/components/sections/FAQ';
 import { Hero } from '@/components/sections/Hero';
@@ -67,6 +68,7 @@ export default function HomePage() {
       <Estimate circuits={circuits} pricing={pricing} site={site} />
       <Reviews reviews={reviews} />
       <FAQ items={faq} />
+      <Enquiry site={site} />
     </main>
   );
 }
