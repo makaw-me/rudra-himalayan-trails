@@ -56,6 +56,17 @@ try {
     await page.evaluate(() => document.fonts.ready);
 
     const el = page.locator(selector).first();
+    const box = await el.boundingBox();
+    if (box && box.height > 600) {
+      await page.setViewportSize({ width, height: Math.ceil(box.height) + 300 });
+      await page.waitForTimeout(100);
+    }
+    await page.evaluate(() => {
+      if (document.activeElement && 'blur' in document.activeElement) {
+        document.activeElement.blur();
+      }
+    });
+
     const outputPath = `docs/design/phase1/${section}-${width}.png`;
     await el.screenshot({ path: outputPath });
     console.log(`Saved screenshot to ${outputPath}`);
