@@ -11,3 +11,6 @@ export type Todo = ReturnType<typeof todo>;
 
 export const isTodo = (value: unknown): value is Todo =>
   typeof value === 'string' && value.startsWith(TODO_PREFIX);
+
+/** Pending client asset: final SVG logo lockup */
+export const LOGO_LOCKUP_TODO = todo('replace temporary PNG <img> with final SVG lockup');
