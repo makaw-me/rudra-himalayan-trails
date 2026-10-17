@@ -1,5 +1,6 @@
-import { getImage, getNavigation, getSite } from '@/data';
+import { getImage, getNavigation, getSite, getTrustItems } from '@/data';
 import { Hero } from '@/components/sections/Hero';
+import { TrustStrip } from '@/components/sections/TrustStrip';
 
 /**
  * Home page: composed server components.
@@ -9,6 +10,7 @@ export default function HomePage() {
   const site = getSite();
   const navigation = getNavigation();
   const heroImage = getImage('hero');
+  const trustItems = getTrustItems();
 
   return (
     <main id="main" tabIndex={-1} className="focus:outline-none">
@@ -19,6 +21,7 @@ export default function HomePage() {
         primaryCta={navigation.cta}
         secondaryCta={{ label: 'Explore routes', href: '#routes' }}
       />
+      <TrustStrip items={trustItems} />
     </main>
   );
 }
