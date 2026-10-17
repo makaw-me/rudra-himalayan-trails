@@ -36,6 +36,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         />
         {children}
         <Footer
+          site={site}
+          navItems={navigation.primary}
           legalName={site.legalName}
           tagline={site.tagline}
           copyrightText={site.ui.copyright}
