@@ -1,5 +1,6 @@
 import { getImage, getNavigation, getSite, getTrustItems } from '@/data';
 import { Hero } from '@/components/sections/Hero';
+import { MeetBhupinder } from '@/components/sections/MeetBhupinder';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 
 /**
@@ -10,6 +11,7 @@ export default function HomePage() {
   const site = getSite();
   const navigation = getNavigation();
   const heroImage = getImage('hero');
+  const bhupinderImage = getImage('bhupinder');
   const trustItems = getTrustItems();
 
   return (
@@ -22,6 +24,7 @@ export default function HomePage() {
         secondaryCta={{ label: 'Explore routes', href: '#routes' }}
       />
       <TrustStrip items={trustItems} />
+      <MeetBhupinder founder={site.founder} image={bhupinderImage} />
     </main>
   );
 }

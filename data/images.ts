@@ -16,4 +16,13 @@ export const images = {
     sizes: '(max-width: 768px) 100vw, 50vw',
     priority: true,
   },
+  bhupinder: {
+    src: '/placeholders/bhupinder.svg',
+    alt: 'Bhupinder Thakur with expedition SUV in Himachal Pradesh',
+    decorative: false,
+    width: 1000,
+    height: 1000,
+    sizes: '(max-width: 768px) 100vw, 50vw',
+    priority: false,
+  },
 } satisfies ImagesInput;

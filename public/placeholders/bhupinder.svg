@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" fill="none">
+  <defs>
+    <linearGradient id="bioSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAF2F3"/>
+      <stop offset="100%" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="bioMountain" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#64816B" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#164653" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="bioForeground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#164653" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#344B53"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="1000" fill="url(#bioSky)"/>
+
+  <!-- Mountain Silhouettes -->
+  <polygon points="50,750 350,380 650,750" fill="url(#bioMountain)"/>
+  <polygon points="380,780 720,310 1020,780" fill="url(#bioMountain)"/>
+  <polygon points="100,850 480,480 880,850" fill="url(#bioForeground)" fill-opacity="0.4"/>
+
+  <!-- Valley Floor -->
+  <path d="M0 800 Q300 740 600 810 T1000 800 L1000 1000 L0 1000 Z" fill="#EAF2F3"/>
+
+  <!-- SUV Silhouette -->
+  <g transform="translate(320, 680)">
+    <rect x="0" y="40" width="360" height="140" rx="24" fill="#164653"/>
+    <!-- Cabin -->
+    <path d="M50 40 L100 -20 L280 -20 L320 40 Z" fill="#344B53"/>
+    <!-- Windows -->
+    <path d="M65 35 L105 -10 L180 -10 L180 35 Z" fill="#EAF2F3" fill-opacity="0.7"/>
+    <path d="M195 35 L195 -10 L270 -10 L305 35 Z" fill="#EAF2F3" fill-opacity="0.7"/>
+    <!-- Wheels -->
+    <circle cx="80" cy="180" r="45" fill="#344B53"/>
+    <circle cx="80" cy="180" r="22" fill="#EAF2F3"/>
+    <circle cx="280" cy="180" r="45" fill="#344B53"/>
+    <circle cx="280" cy="180" r="22" fill="#EAF2F3"/>
+  </g>
+
+  <!-- Outline frame -->
+  <rect x="0.5" y="0.5" width="999" height="999" rx="16" stroke="#EAF2F3" stroke-width="1"/>
+
+  <!-- Badge label -->
+  <g transform="translate(60, 910)">
+    <rect width="480" height="48" rx="8" fill="#164653" fill-opacity="0.85"/>
+    <text x="240" y="30" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="600" text-anchor="middle">
+      Bhupinder Thakur with vehicle • Photo Placeholder
+    </text>
+  </g>
+</svg>
