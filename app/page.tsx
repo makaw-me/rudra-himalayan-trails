@@ -3,6 +3,7 @@ import {
   getImage,
   getNavigation,
   getPricing,
+  getReviews,
   getSite,
   getStays,
   getSteps,
@@ -13,6 +14,7 @@ import { Estimate } from '@/components/sections/Estimate';
 import { Hero } from '@/components/sections/Hero';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { MeetBhupinder } from '@/components/sections/MeetBhupinder';
+import { Reviews } from '@/components/sections/Reviews';
 import { Stays } from '@/components/sections/Stays';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 
@@ -30,6 +32,7 @@ export default function HomePage() {
   const steps = getSteps();
   const stays = getStays();
   const pricing = getPricing();
+  const reviews = getReviews();
 
   const circuitImages = {
     'circuit-spiti': getImage('circuit-spiti'),
@@ -59,6 +62,7 @@ export default function HomePage() {
       <HowItWorks steps={steps} />
       <Stays stays={stays} images={stayImages} />
       <Estimate circuits={circuits} pricing={pricing} site={site} />
+      <Reviews reviews={reviews} />
     </main>
   );
 }
