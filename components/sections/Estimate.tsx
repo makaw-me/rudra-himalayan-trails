@@ -145,7 +145,7 @@ export function Estimate({ circuits, pricing, site }: EstimateProps) {
           </div>
 
           {/* Legal / Pricing Disclaimer */}
-          <p className="text-center text-xs text-charcoal/70">
+          <p className="text-center text-xs text-charcoal">
             {pricing.disclaimer.startsWith('TODO:')
               ? 'Estimates are indicative and exclude state permits, monument tickets, or unexpected road detours. Final quote confirmed directly before booking.'
               : pricing.disclaimer}

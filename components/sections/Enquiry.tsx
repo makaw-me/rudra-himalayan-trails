@@ -56,10 +56,10 @@ export function Enquiry({ site }: EnquiryProps) {
             </ul>
 
             <div className="mt-6 border-t border-teal/10 pt-4">
-              <p className="text-xs text-charcoal/80">Prefer speaking on the phone?</p>
+              <p className="text-xs text-charcoal/90">Prefer speaking on the phone?</p>
               <a
                 href={telHref}
-                className="mt-1 inline-flex items-center font-heading text-sm font-bold text-teal underline underline-offset-4 hover:text-teal/80 focus-visible:outline-teal"
+                className="mt-1 inline-flex min-h-target items-center font-heading text-sm font-bold text-teal underline underline-offset-4 hover:text-teal/80 focus-visible:outline-teal"
               >
                 Call Bhupinder directly: {displayPhone}
               </a>
@@ -206,11 +206,11 @@ export function Enquiry({ site }: EnquiryProps) {
             </div>
 
             {/* Privacy note */}
-            <p className="pt-1 text-center font-sans text-xs text-charcoal/70 sm:text-left">
+            <p className="pt-1 text-center font-sans text-xs text-charcoal sm:text-left">
               Opens WhatsApp with your travel details. Nothing is stored by this site.{' '}
               <a
                 href="#footer"
-                className="text-teal underline underline-offset-2 hover:text-teal/80 focus-visible:outline-teal"
+                className="inline-flex min-h-target items-center text-teal underline underline-offset-2 hover:text-teal/80 focus-visible:outline-teal"
               >
                 Privacy policy
               </a>

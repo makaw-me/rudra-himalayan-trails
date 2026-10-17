@@ -33,7 +33,6 @@ export function HowItWorks({ steps }: HowItWorksProps) {
 
       <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-8">
         {steps.map((step, index) => {
-          const stepNumber = String(index + 1).padStart(2, '0');
           const description = step.description.startsWith('TODO:')
             ? DRAFT_STEP_DESCRIPTIONS[step.id] || step.description
             : step.description;
@@ -44,8 +43,8 @@ export function HowItWorks({ steps }: HowItWorksProps) {
               className="relative flex flex-col justify-between rounded-2xl border border-mist/80 bg-mist/20 p-6 shadow-2xs transition-all hover:shadow-xs sm:p-8"
             >
               <div>
-                <span className="font-heading text-2xl font-extrabold tracking-tight text-teal/40">
-                  {stepNumber}
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-gold font-heading text-sm font-bold text-teal shadow-2xs">
+                  {index + 1}
                 </span>
                 <h3 className="mt-4 font-heading text-lg font-bold text-teal">{step.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-charcoal">{description}</p>

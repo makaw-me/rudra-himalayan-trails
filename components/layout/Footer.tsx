@@ -57,7 +57,7 @@ export function Footer({
           <div className="md:col-span-5 lg:col-span-5">
             <a
               href="#top"
-              className="inline-block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
+              className="inline-flex min-h-target items-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal"
               aria-label="Rudra Himalayan Trails - Back to top"
             >
               <Logo className="h-10 w-auto sm:h-12" />
@@ -79,7 +79,7 @@ export function Footer({
                 <li key={item.id}>
                   <a
                     href={item.href}
-                    className="inline-flex min-h-[40px] items-center text-sm text-charcoal/90 transition-colors hover:text-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+                    className="inline-flex min-h-target items-center text-sm text-charcoal/90 transition-colors hover:text-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
                   >
                     {item.label}
                   </a>
@@ -88,7 +88,7 @@ export function Footer({
               <li>
                 <a
                   href="#top"
-                  className="inline-flex min-h-[40px] items-center text-sm font-semibold text-teal underline underline-offset-4 transition-colors hover:text-teal/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
+                  className="inline-flex min-h-target items-center text-sm font-semibold text-teal underline underline-offset-4 transition-colors hover:text-teal/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal"
                 >
                   {backToTopLabel}
                 </a>
@@ -107,13 +107,13 @@ export function Footer({
                 <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1">
                   <a
                     href={telHref}
-                    className="inline-flex min-h-[40px] items-center font-heading font-medium text-teal hover:underline focus-visible:outline-teal"
+                    className="inline-flex min-h-target items-center font-heading font-medium text-teal hover:underline focus-visible:outline-teal"
                   >
                     {displayPhone}
                   </a>
                   <a
                     href={whatsappUrl}
-                    className="inline-flex min-h-[40px] items-center font-heading font-semibold text-teal hover:underline focus-visible:outline-teal"
+                    className="inline-flex min-h-target items-center font-heading font-semibold text-teal hover:underline focus-visible:outline-teal"
                   >
                     WhatsApp Chat
                   </a>
@@ -142,7 +142,7 @@ export function Footer({
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <a
               href="#legal"
-              className="inline-flex min-h-[40px] items-center hover:text-teal focus-visible:outline-teal"
+              className="inline-flex min-h-target items-center hover:text-teal focus-visible:outline-teal"
             >
               Privacy policy
             </a>
@@ -151,7 +151,7 @@ export function Footer({
             </span>
             <a
               href="#legal"
-              className="inline-flex min-h-[40px] items-center hover:text-teal focus-visible:outline-teal"
+              className="inline-flex min-h-target items-center hover:text-teal focus-visible:outline-teal"
             >
               Terms of service
             </a>
