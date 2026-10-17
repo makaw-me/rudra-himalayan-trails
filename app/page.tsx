@@ -1,6 +1,7 @@
-import { getCircuits, getImage, getNavigation, getSite, getTrustItems } from '@/data';
+import { getCircuits, getImage, getNavigation, getSite, getSteps, getTrustItems } from '@/data';
 import { Circuits } from '@/components/sections/Circuits';
 import { Hero } from '@/components/sections/Hero';
+import { HowItWorks } from '@/components/sections/HowItWorks';
 import { MeetBhupinder } from '@/components/sections/MeetBhupinder';
 import { TrustStrip } from '@/components/sections/TrustStrip';
 
@@ -15,6 +16,7 @@ export default function HomePage() {
   const bhupinderImage = getImage('bhupinder');
   const trustItems = getTrustItems();
   const circuits = getCircuits();
+  const steps = getSteps();
 
   const circuitImages = {
     'circuit-spiti': getImage('circuit-spiti'),
@@ -35,6 +37,7 @@ export default function HomePage() {
       <TrustStrip items={trustItems} />
       <MeetBhupinder founder={site.founder} image={bhupinderImage} />
       <Circuits circuits={circuits} images={circuitImages} />
+      <HowItWorks steps={steps} />
     </main>
   );
 }
