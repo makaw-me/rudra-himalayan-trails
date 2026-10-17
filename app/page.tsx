@@ -1,5 +1,6 @@
 import {
   getCircuits,
+  getFaq,
   getImage,
   getNavigation,
   getPricing,
@@ -11,6 +12,7 @@ import {
 } from '@/data';
 import { Circuits } from '@/components/sections/Circuits';
 import { Estimate } from '@/components/sections/Estimate';
+import { FAQ } from '@/components/sections/FAQ';
 import { Hero } from '@/components/sections/Hero';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { MeetBhupinder } from '@/components/sections/MeetBhupinder';
@@ -33,6 +35,7 @@ export default function HomePage() {
   const stays = getStays();
   const pricing = getPricing();
   const reviews = getReviews();
+  const faq = getFaq();
 
   const circuitImages = {
     'circuit-spiti': getImage('circuit-spiti'),
@@ -63,6 +66,7 @@ export default function HomePage() {
       <Stays stays={stays} images={stayImages} />
       <Estimate circuits={circuits} pricing={pricing} site={site} />
       <Reviews reviews={reviews} />
+      <FAQ items={faq} />
     </main>
   );
 }
