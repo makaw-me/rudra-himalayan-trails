@@ -20,8 +20,10 @@ export function Logo({
     <img
       src="/brand/rudra-himalayan-trails_logo-final.png"
       alt={alt}
-      width={1983}
-      height={793}
+      width={600}
+      height={240}
+      fetchPriority="low"
+      decoding="async"
       className={`block object-contain ${className}`}
       {...props}
     />

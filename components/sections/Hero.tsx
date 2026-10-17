@@ -29,6 +29,23 @@ export function Hero({ headline, subcopy, image, primaryCta, secondaryCta }: Her
   return (
     <section id="hero" aria-labelledby="hero-title" className="container-page py-8 lg:py-16">
       <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-12">
+        {/* Visual column: LCP element, photo-first on mobile, order-last on desktop */}
+        <div className="w-full md:order-last">
+          <div className="relative aspect-3/2 w-full overflow-hidden rounded-xl border border-mist/80 bg-mist/20 shadow-xs">
+            {image && (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                sizes={image.sizes}
+                priority={image.priority}
+                className="h-full w-full object-cover"
+              />
+            )}
+          </div>
+        </div>
+
         {/* Copy column */}
         <div className="flex flex-col items-start">
           <p className="mb-3 eyebrow text-teal/80">Explore • Experience • Belong</p>
@@ -50,23 +67,6 @@ export function Hero({ headline, subcopy, image, primaryCta, secondaryCta }: Her
             >
               {secondaryCta.label}
             </a>
-          </div>
-        </div>
-
-        {/* Visual column: LCP element, photo-first on mobile */}
-        <div className="order-first w-full md:order-last">
-          <div className="relative aspect-3/2 w-full overflow-hidden rounded-xl border border-mist/80 bg-mist/20 shadow-xs">
-            {image && (
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                sizes={image.sizes}
-                priority={image.priority}
-                className="h-full w-full object-cover"
-              />
-            )}
           </div>
         </div>
       </div>
